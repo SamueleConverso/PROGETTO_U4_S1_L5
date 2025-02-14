@@ -53,11 +53,13 @@ while (dataNascita == null || dataNascita == "" || dataNascita == " " || isDataN
 
 Console.Write("Inserisci il tuo codice fiscale: ");
 var codiceFiscale = Console.ReadLine();
+string regexCF = @"^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$";
 codiceFiscale = codiceFiscale!.Trim();
 bool isCodiceFiscaleInt = int.TryParse(codiceFiscale, out _);
 bool isCodiceFiscaleDeci = decimal.TryParse(codiceFiscale, out _);
+bool isCodiceFiscaleValid = System.Text.RegularExpressions.Regex.IsMatch(codiceFiscale, regexCF);
 
-while (codiceFiscale == null || codiceFiscale == "" || codiceFiscale == " " || isCodiceFiscaleInt || isCodiceFiscaleDeci) {
+while (codiceFiscale == null || codiceFiscale == "" || codiceFiscale == " " || isCodiceFiscaleInt || isCodiceFiscaleDeci || !isCodiceFiscaleValid) {
     Console.WriteLine();
     Console.WriteLine("Il codice fiscale non è valido!");
     Console.Write("Inserisci il tuo codice fiscale: ");
@@ -65,6 +67,7 @@ while (codiceFiscale == null || codiceFiscale == "" || codiceFiscale == " " || i
     codiceFiscale = codiceFiscale!.Trim();
     isCodiceFiscaleInt = int.TryParse(codiceFiscale, out _);
     isCodiceFiscaleDeci = decimal.TryParse(codiceFiscale, out _);
+    isCodiceFiscaleValid = System.Text.RegularExpressions.Regex.IsMatch(codiceFiscale, regexCF);
 }
 
 Console.Write("Inserisci il tuo sesso (M/F/X): ");
