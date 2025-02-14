@@ -5,6 +5,15 @@ Console.WriteLine();
 
 Console.Write("Inserisci il tuo nome: ");
 var nome = Console.ReadLine();
+nome = nome!.Trim();
+
+while (nome == null || nome == "" || nome == " ") {
+    Console.WriteLine();
+    Console.WriteLine("Il nome non può essere vuoto!");
+    Console.Write("Inserisci il tuo nome: ");
+    nome = Console.ReadLine();
+    nome = nome!.Trim();
+}
 
 Console.Write("Inserisci il tuo cognome: ");
 var cognome = Console.ReadLine();
