@@ -2,16 +2,22 @@
 
 Console.WriteLine("Benvenuto nel programma di calcolo delle imposte!");
 Console.WriteLine();
+
 Console.Write("Inserisci il tuo nome: ");
 var nome = Console.ReadLine();
+
 Console.Write("Inserisci il tuo cognome: ");
 var cognome = Console.ReadLine();
+
 Console.Write("Inserisci la tua data di nascita: ");
 var dataNascita = Console.ReadLine();
+
 Console.Write("Inserisci il tuo codice fiscale: ");
 var codiceFiscale = Console.ReadLine();
+
 Console.Write("Inserisci il tuo sesso: ");
 var sesso = Console.ReadLine();
+
 Console.Write("Inserisci il comune di residenza: ");
 var comuneResidenza = Console.ReadLine();
 
