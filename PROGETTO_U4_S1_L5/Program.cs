@@ -6,13 +6,17 @@ Console.WriteLine();
 Console.Write("Inserisci il tuo nome: ");
 var nome = Console.ReadLine();
 nome = nome!.Trim();
+bool isNomeNumero = int.TryParse(nome, out int n);
+isNomeNumero = decimal.TryParse(nome, out decimal d);
 
-while (nome == null || nome == "" || nome == " ") {
+while (nome == null || nome == "" || nome == " " || isNomeNumero) {
     Console.WriteLine();
-    Console.WriteLine("Il nome non può essere vuoto!");
+    Console.WriteLine("Il nome non è valido!");
     Console.Write("Inserisci il tuo nome: ");
     nome = Console.ReadLine();
     nome = nome!.Trim();
+    isNomeNumero = int.TryParse(nome, out n);
+    isNomeNumero = decimal.TryParse(nome, out d);
 }
 
 Console.Write("Inserisci il tuo cognome: ");
