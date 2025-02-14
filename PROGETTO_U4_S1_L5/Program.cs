@@ -37,6 +37,19 @@ while (cognome == null || cognome == "" || cognome == " " || isCognomeInt || isC
 
 Console.Write("Inserisci la tua data di nascita: ");
 var dataNascita = Console.ReadLine();
+dataNascita = dataNascita!.Trim();
+bool isDataNascitaInt = int.TryParse(dataNascita, out _);
+bool isDataNascitaDeci = decimal.TryParse(dataNascita, out _);
+
+while (dataNascita == null || dataNascita == "" || dataNascita == " " || isDataNascitaInt || isDataNascitaDeci) {
+    Console.WriteLine();
+    Console.WriteLine("La data di nascita non è valida!");
+    Console.Write("Inserisci la tua data di nascita: ");
+    dataNascita = Console.ReadLine();
+    dataNascita = dataNascita!.Trim();
+    isDataNascitaInt = int.TryParse(dataNascita, out _);
+    isDataNascitaDeci = decimal.TryParse(dataNascita, out _);
+}
 
 Console.Write("Inserisci il tuo codice fiscale: ");
 var codiceFiscale = Console.ReadLine();
