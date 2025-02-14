@@ -67,8 +67,26 @@ while (codiceFiscale == null || codiceFiscale == "" || codiceFiscale == " " || i
     isCodiceFiscaleDeci = decimal.TryParse(codiceFiscale, out _);
 }
 
-Console.Write("Inserisci il tuo sesso (M/S/X): ");
+Console.Write("Inserisci il tuo sesso (M/F/X): ");
 var sesso = Console.ReadLine();
+sesso = sesso!.Trim();
+sesso = sesso.ToUpper();
+bool isSessoMFX = sesso == "M" || sesso == "F" || sesso == "X";
+bool isSessoInt = int.TryParse(sesso, out _);
+bool isSessoDeci = decimal.TryParse(sesso, out _);
+
+while (sesso == null || sesso == "" || sesso == " " || isSessoInt || isSessoDeci || !isSessoMFX) {
+    Console.WriteLine();
+    Console.WriteLine("Il sesso non è valido!");
+    Console.Write("Inserisci il tuo sesso (M/F/X): ");
+    sesso = Console.ReadLine();
+    sesso = sesso!.Trim();
+    sesso = sesso.ToUpper();
+    isSessoMFX = sesso == "M" || sesso == "F" || sesso == "X";
+    isSessoInt = int.TryParse(sesso, out _);
+    isSessoDeci = decimal.TryParse(sesso, out _);
+}
+
 
 Console.Write("Inserisci il comune di residenza: ");
 var comuneResidenza = Console.ReadLine();
