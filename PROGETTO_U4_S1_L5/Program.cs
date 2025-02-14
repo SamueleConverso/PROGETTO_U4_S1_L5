@@ -1,4 +1,5 @@
-﻿using PROGETTO_U4_S1_L5.Models;
+﻿using System.Globalization;
+using PROGETTO_U4_S1_L5.Models;
 
 Console.WriteLine("Benvenuto nel programma di calcolo delle imposte!");
 Console.WriteLine();
@@ -35,20 +36,23 @@ while (cognome == null || cognome == "" || cognome == " " || isCognomeInt || isC
     isCognomeDeci = decimal.TryParse(cognome, out _);
 }
 
-Console.Write("Inserisci la tua data di nascita: ");
+Console.Write("Inserisci la tua data di nascita (GG/MM/AAAA): ");
 var dataNascita = Console.ReadLine();
+string pattern = "dd/MM/yyyy";
 dataNascita = dataNascita!.Trim();
 bool isDataNascitaInt = int.TryParse(dataNascita, out _);
 bool isDataNascitaDeci = decimal.TryParse(dataNascita, out _);
+bool isDataNascitaValid = DateTime.TryParseExact(dataNascita, pattern, CultureInfo.InvariantCulture, DateTimeStyles.None, out _);
 
-while (dataNascita == null || dataNascita == "" || dataNascita == " " || isDataNascitaInt || isDataNascitaDeci) {
+while (dataNascita == null || dataNascita == "" || dataNascita == " " || isDataNascitaInt || isDataNascitaDeci || !isDataNascitaValid) {
     Console.WriteLine();
     Console.WriteLine("La data di nascita non è valida!");
-    Console.Write("Inserisci la tua data di nascita: ");
+    Console.Write("Inserisci la tua data di nascita (GG/MM/AAAA): ");
     dataNascita = Console.ReadLine();
     dataNascita = dataNascita!.Trim();
     isDataNascitaInt = int.TryParse(dataNascita, out _);
     isDataNascitaDeci = decimal.TryParse(dataNascita, out _);
+    isDataNascitaValid = DateTime.TryParseExact(dataNascita, pattern, CultureInfo.InvariantCulture, DateTimeStyles.None, out _);
 }
 
 Console.Write("Inserisci il tuo codice fiscale: ");
