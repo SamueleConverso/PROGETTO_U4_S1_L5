@@ -27,8 +27,9 @@ var cognome = Console.ReadLine();
 cognome = cognome!.Trim();
 bool isCognomeInt = int.TryParse(cognome, out _);
 bool isCognomeDeci = decimal.TryParse(cognome, out _);
+bool cognomeContainsNumbers = cognome.Any(char.IsDigit);
 
-while (cognome == null || cognome == "" || cognome == " " || isCognomeInt || isCognomeDeci) {
+while (cognome == null || cognome == "" || cognome == " " || isCognomeInt || isCognomeDeci || cognomeContainsNumbers) {
     Console.WriteLine();
     Console.WriteLine("Il cognome non è valido!");
     Console.Write("Inserisci il tuo cognome: ");
@@ -36,6 +37,7 @@ while (cognome == null || cognome == "" || cognome == " " || isCognomeInt || isC
     cognome = cognome!.Trim();
     isCognomeInt = int.TryParse(cognome, out _);
     isCognomeDeci = decimal.TryParse(cognome, out _);
+    cognomeContainsNumbers = cognome.Any(char.IsDigit);
 }
 
 Console.Write("Inserisci la tua data di nascita (GG/MM/AAAA): ");
@@ -102,8 +104,9 @@ var comuneResidenza = Console.ReadLine();
 comuneResidenza = comuneResidenza!.Trim();
 bool isComuneResidenzaInt = int.TryParse(comuneResidenza, out _);
 bool isComuneResidenzaDeci = decimal.TryParse(comuneResidenza, out _);
+bool comuneResidenzaContainsNumbers = comuneResidenza.Any(char.IsDigit);
 
-while (comuneResidenza == null || comuneResidenza == "" || comuneResidenza == " " || isComuneResidenzaInt || isComuneResidenzaDeci) {
+while (comuneResidenza == null || comuneResidenza == "" || comuneResidenza == " " || isComuneResidenzaInt || isComuneResidenzaDeci || comuneResidenzaContainsNumbers) {
     Console.WriteLine();
     Console.WriteLine("Il comune di residenza non è valido!");
     Console.Write("Inserisci il tuo comune di residenza: ");
@@ -111,6 +114,7 @@ while (comuneResidenza == null || comuneResidenza == "" || comuneResidenza == " 
     comuneResidenza = comuneResidenza!.Trim();
     isComuneResidenzaInt = int.TryParse(comuneResidenza, out _);
     isComuneResidenzaDeci = decimal.TryParse(comuneResidenza, out _);
+    comuneResidenzaContainsNumbers = comuneResidenza.Any(char.IsDigit);
 }
 
 Console.Write("Inserisci il tuo reddito annuale: ");
