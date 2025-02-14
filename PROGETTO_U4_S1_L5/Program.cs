@@ -88,8 +88,21 @@ while (sesso == null || sesso == "" || sesso == " " || isSessoInt || isSessoDeci
 }
 
 
-Console.Write("Inserisci il comune di residenza: ");
+Console.Write("Inserisci il tuo comune di residenza: ");
 var comuneResidenza = Console.ReadLine();
+comuneResidenza = comuneResidenza!.Trim();
+bool isComuneResidenzaInt = int.TryParse(comuneResidenza, out _);
+bool isComuneResidenzaDeci = decimal.TryParse(comuneResidenza, out _);
+
+while (comuneResidenza == null || comuneResidenza == "" || comuneResidenza == " " || isComuneResidenzaInt || isComuneResidenzaDeci) {
+    Console.WriteLine();
+    Console.WriteLine("Il comune di residenza non è valido!");
+    Console.Write("Inserisci il tuo comune di residenza: ");
+    comuneResidenza = Console.ReadLine();
+    comuneResidenza = comuneResidenza!.Trim();
+    isComuneResidenzaInt = int.TryParse(comuneResidenza, out _);
+    isComuneResidenzaDeci = decimal.TryParse(comuneResidenza, out _);
+}
 
 Console.Write("Inserisci il tuo reddito annuale: ");
 bool isDecimal = decimal.TryParse(Console.ReadLine(), out decimal redditoAnnuale);
@@ -107,6 +120,7 @@ Contribuente contribuente = new Contribuente(nome!, cognome!, dataNascita!, codi
 decimal imposte = contribuente.CalcolaImposte();
 
 Console.WriteLine("CALCOLO DELLE IMPOSTE DA VERSARE:");
+Console.WriteLine();
 Console.WriteLine($"Contribuente: {contribuente.Nome} {contribuente.Cognome},");
 Console.WriteLine($"nato il: {contribuente.DataNascita} ({contribuente.Sesso}),");
 Console.WriteLine($"residente a: {contribuente.ComuneResidenza}.");
