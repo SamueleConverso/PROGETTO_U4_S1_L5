@@ -49,7 +49,7 @@ Contribuente contribuente = new Contribuente(nome!, cognome!, dataNascita!, codi
 
 decimal imposte = contribuente.CalcolaImposte();
 
-Console.WriteLine("CALCOLO DELL'IMPOSTA DA VERSARE:");
+Console.WriteLine("CALCOLO DELLE IMPOSTE DA VERSARE:");
 Console.WriteLine($"Contribuente: {contribuente.Nome} {contribuente.Cognome},");
 Console.WriteLine($"nato il: {contribuente.DataNascita} ({contribuente.Sesso}),");
 Console.WriteLine($"residente a: {contribuente.ComuneResidenza}.");
