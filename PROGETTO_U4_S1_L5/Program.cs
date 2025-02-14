@@ -6,8 +6,8 @@ Console.WriteLine();
 Console.Write("Inserisci il tuo nome: ");
 var nome = Console.ReadLine();
 nome = nome!.Trim();
-bool isNomeInt = int.TryParse(nome, out int n);
-bool isNomeDeci = decimal.TryParse(nome, out decimal d);
+bool isNomeInt = int.TryParse(nome, out _);
+bool isNomeDeci = decimal.TryParse(nome, out _);
 
 while (nome == null || nome == "" || nome == " " || isNomeInt || isNomeDeci) {
     Console.WriteLine();
@@ -15,12 +15,25 @@ while (nome == null || nome == "" || nome == " " || isNomeInt || isNomeDeci) {
     Console.Write("Inserisci il tuo nome: ");
     nome = Console.ReadLine();
     nome = nome!.Trim();
-    isNomeInt = int.TryParse(nome, out n);
-    isNomeDeci = decimal.TryParse(nome, out d);
+    isNomeInt = int.TryParse(nome, out _);
+    isNomeDeci = decimal.TryParse(nome, out _);
 }
 
 Console.Write("Inserisci il tuo cognome: ");
 var cognome = Console.ReadLine();
+cognome = cognome!.Trim();
+bool isCognomeInt = int.TryParse(cognome, out _);
+bool isCognomeDeci = decimal.TryParse(cognome, out _);
+
+while (cognome == null || cognome == "" || cognome == " " || isCognomeInt || isCognomeDeci) {
+    Console.WriteLine();
+    Console.WriteLine("Il nome non è valido!");
+    Console.Write("Inserisci il tuo nome: ");
+    cognome = Console.ReadLine();
+    cognome = cognome!.Trim();
+    isCognomeInt = int.TryParse(cognome, out _);
+    isCognomeDeci = decimal.TryParse(cognome, out _);
+}
 
 Console.Write("Inserisci la tua data di nascita: ");
 var dataNascita = Console.ReadLine();
