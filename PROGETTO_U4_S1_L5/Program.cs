@@ -9,8 +9,9 @@ var nome = Console.ReadLine();
 nome = nome!.Trim();
 bool isNomeInt = int.TryParse(nome, out _);
 bool isNomeDeci = decimal.TryParse(nome, out _);
+bool nomeContainsNumbers = nome.Any(char.IsDigit);
 
-while (nome == null || nome == "" || nome == " " || isNomeInt || isNomeDeci) {
+while (nome == null || nome == "" || nome == " " || isNomeInt || isNomeDeci || nomeContainsNumbers) {
     Console.WriteLine();
     Console.WriteLine("Il nome non è valido!");
     Console.Write("Inserisci il tuo nome: ");
@@ -18,6 +19,7 @@ while (nome == null || nome == "" || nome == " " || isNomeInt || isNomeDeci) {
     nome = nome!.Trim();
     isNomeInt = int.TryParse(nome, out _);
     isNomeDeci = decimal.TryParse(nome, out _);
+    nomeContainsNumbers = nome.Any(char.IsDigit);
 }
 
 Console.Write("Inserisci il tuo cognome: ");
