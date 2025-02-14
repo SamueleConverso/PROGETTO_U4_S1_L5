@@ -27,8 +27,8 @@ bool isCognomeDeci = decimal.TryParse(cognome, out _);
 
 while (cognome == null || cognome == "" || cognome == " " || isCognomeInt || isCognomeDeci) {
     Console.WriteLine();
-    Console.WriteLine("Il nome non è valido!");
-    Console.Write("Inserisci il tuo nome: ");
+    Console.WriteLine("Il cognome non è valido!");
+    Console.Write("Inserisci il tuo cognome: ");
     cognome = Console.ReadLine();
     cognome = cognome!.Trim();
     isCognomeInt = int.TryParse(cognome, out _);
