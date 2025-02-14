@@ -53,8 +53,21 @@ while (dataNascita == null || dataNascita == "" || dataNascita == " " || isDataN
 
 Console.Write("Inserisci il tuo codice fiscale: ");
 var codiceFiscale = Console.ReadLine();
+codiceFiscale = codiceFiscale!.Trim();
+bool isCodiceFiscaleInt = int.TryParse(codiceFiscale, out _);
+bool isCodiceFiscaleDeci = decimal.TryParse(codiceFiscale, out _);
 
-Console.Write("Inserisci il tuo sesso: ");
+while (codiceFiscale == null || codiceFiscale == "" || codiceFiscale == " " || isCodiceFiscaleInt || isCodiceFiscaleDeci) {
+    Console.WriteLine();
+    Console.WriteLine("Il codice fiscale non è valido!");
+    Console.Write("Inserisci il tuo codice fiscale: ");
+    codiceFiscale = Console.ReadLine();
+    codiceFiscale = codiceFiscale!.Trim();
+    isCodiceFiscaleInt = int.TryParse(codiceFiscale, out _);
+    isCodiceFiscaleDeci = decimal.TryParse(codiceFiscale, out _);
+}
+
+Console.Write("Inserisci il tuo sesso (M/S/X): ");
 var sesso = Console.ReadLine();
 
 Console.Write("Inserisci il comune di residenza: ");
